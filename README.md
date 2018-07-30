@@ -1,4 +1,4 @@
-# One Click bookmark extension start
+# One Click Bookmark Extension
 
 Making a one click bookmark for people that have too many tabs open.
 
