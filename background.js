@@ -1,14 +1,16 @@
-chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set({ color: '#3aa757' }, () => {
-        debugger;
-    });
-    chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
-        chrome.declarativeContent.onPageChanged.addRules([{
-            conditions: [new chrome.declarativeContent.PageStateMatcher({
-                pageUrl: { hostEquals: 'developer.chrome.com' },
-            })
-            ],
-            actions: [new chrome.declarativeContent.ShowPageAction()]
-        }]);
-    });
+chrome.browserAction.onClicked.addListener((tab) => { 
+	chrome.tabs.getAllInWindow(null, (tabs) => {
+		const dateObj = new Date();
+		const month = dateObj.getUTCMonth() + 1; //months from 1-12
+		const day = dateObj.getUTCDate();
+		const year = dateObj.getUTCFullYear();
+
+		const newdate = [month, day, year].join('/');
+		// All users current window chrome tabs
+		tabs.map(tab => {
+			const {title, url, id} = tab;
+			chrome.bookmarks.create({'title': newdate});
+			console.log(tab);
+		})
+	});
 });
