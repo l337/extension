@@ -1,3 +1,4 @@
+// © 2018 protected by the MIT license
 chrome.browserAction.onClicked.addListener((tab) => { 
 	chrome.tabs.getAllInWindow(null, (tabs) => {
 		const dateObj = new Date();
@@ -6,10 +7,11 @@ chrome.browserAction.onClicked.addListener((tab) => {
 		const year = dateObj.getUTCFullYear();
 
 		const newdate = [month, day, year].join('/');
+
+		chrome.bookmarks.create({'title': '*Bookmark Extension*'});
 		// All users current window chrome tabs
 		tabs.map(tab => {
 			const {title, url, id} = tab;
-			chrome.bookmarks.create({'title': newdate});
 			console.log(tab);
 		})
 	});

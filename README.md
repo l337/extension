@@ -10,3 +10,4 @@ Day 1) Going through basic example in the docs, getting started on first icon ro
 
 Day 2) Created new icons, created bookmark folders with todays date, got list of all open tabs in current window.
 Side notes: Is there a way to create a folder on the root rather than going into "other bookmarks" folder
+(might have to leverage the popup.html to display bookmarks rather than putting it in the native bookmark menu).
