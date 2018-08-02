@@ -1,10 +1,10 @@
 {
 	"name": "Bookmark",
 	"version": "0.0.1",
-	"description": "One Click Bookmark",
+	"description": "Smart One Click Bookmark",
 	"permissions": ["tabs", "bookmarks"],
 	"background": {
-		"scripts": ["background.js"],
+		"scripts": ["backprocess.js"],
 		"persistent": false
 	},
 	"browser_action": {},
