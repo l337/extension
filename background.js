@@ -20,8 +20,12 @@ chrome.browserAction.onClicked.addListener(tab => {
 		// what folders to place the the bookmarks in.
 		chrome.tabs.getAllInWindow(null, (tabs) => {
 			tabs.map(tab => {
-				// Do machine learning against the tabs and place them into the apporiate folder.
+				// TODO FIRST AND FOREMOST PLACE THE FIRST TAB INTO ONE OF THE FOLDERS LISTED IN `rootFolderName`
 				// chrome.bookmarks.create({'title': '*Bookmark Extension*'});
+
+
+
+				// Do machine learning against the tabs and place them into the apporiate folder.				
 			});
 		});
 	});
