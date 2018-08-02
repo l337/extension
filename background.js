@@ -1,18 +1,23 @@
 // © 2018 protected by the MIT license
+
+const rootFolderName = [];
+
+function getFolderNames(bookmarkFolders) {
+	bookmarkFolders.map((bookmarkFolder) => {
+		if (bookmarkFolder.children) {
+			rootFolderName.push(bookmarkFolder.title);
+			getFolderNames(bookmarkFolder.children);
+		}
+	});
+}
+
+
 chrome.browserAction.onClicked.addListener((tab) => { 
-	chrome.tabs.getAllInWindow(null, (tabs) => {
-		const dateObj = new Date();
-		const month = dateObj.getUTCMonth() + 1; //months from 1-12
-		const day = dateObj.getUTCDate();
-		const year = dateObj.getUTCFullYear();
+	chrome.bookmarks.getTree((bookmarks) => {
+		// bookmarks[0] - root folder
+		getFolderNames(bookmarks[0].children);
 
-		const newdate = [month, day, year].join('/');
-
-		chrome.bookmarks.create({'title': '*Bookmark Extension*'});
-		// All users current window chrome tabs
-		tabs.map(tab => {
-			const {title, url, id} = tab;
-			console.log(tab);
-		})
+		// TODO Get User All Tabs, then use machine learning algorithms to dictate
+		// what folders to place the the bookmarks in.
 	});
 });
