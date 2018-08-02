@@ -21,6 +21,8 @@ chrome.browserAction.onClicked.addListener(tab => {
 		chrome.tabs.getAllInWindow(null, (tabs) => {
 			tabs.map(tab => {
 				// TODO FIRST AND FOREMOST PLACE THE FIRST TAB INTO ONE OF THE FOLDERS LISTED IN `rootFolderName`
+				// JUST AS A TEST TO GET IT WORKING.
+
 				// chrome.bookmarks.create({'title': '*Bookmark Extension*'});
 
 
