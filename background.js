@@ -1,7 +1,12 @@
 // © 2018 protected by the MIT license
 
+// user bookmark folders
 const rootFolderName = [];
 
+/**
+ * 
+ * @param {{}} bookmarkFolders 
+ */
 function getFolderNames(bookmarkFolders) {
 	bookmarkFolders.map(bookmarkFolder => {
 		if (bookmarkFolder.children) {
@@ -11,7 +16,9 @@ function getFolderNames(bookmarkFolders) {
 	});
 }
 
-
+/**
+ * 
+ */
 chrome.browserAction.onClicked.addListener(tab => { 
 	chrome.bookmarks.getTree((bookmarks) => {
 		// bookmarks[0] - root folder
