@@ -55,8 +55,10 @@
           }
           /**
            * Extract page content
+           * 
+           * && (tab.url !== (tab.url.indexOf('chrome-extension://') >= -1))
            */
-          if (tab.id && (tab.url !== (tab.url.indexOf('chrome-extension://') >= -1))) {
+          if (tab.id) {
             chrome.tabs.executeScript(tab.id, {
               file: 'extractPageContent.js'
             });
