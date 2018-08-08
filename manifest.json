@@ -2,7 +2,7 @@
 	"name": "Bookmark",
 	"version": "0.0.1",
 	"description": "Smart One Click Bookmark",
-	"permissions": ["tabs", "bookmarks"],
+	"permissions": ["tabs", "bookmarks", "<all_urls>"],
 	"background": {
 		"scripts": ["backprocess.js"],
 		"persistent": false
